@@ -16,6 +16,12 @@ function VideoDetails() {
       // console.log(res.data.items);
     });
 
+    //   APIFetch(`search?part=snippet&relatedToVideoId=${id}&type=video`).then(
+    //     (res) => {
+    //       setVideoDetails(res.data.items);
+    //       // console.log(res.data.items);
+    //     }
+    //   );
   }, [id]);
 
   return (
