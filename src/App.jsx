@@ -1,13 +1,13 @@
-// import SimpleFetch from './components/simplefetch/SimpleFetch.jsx'
-import SearchBar from "./components/searchbar/SearchBar"
+import SearchBar from "./components/searchbar/SearchBar";
+// import VideoDetails from "./components/videodetails/VideoDetails";
 
 function App() {
   return (
     <>
-      {/* <SimpleFetch/> */}
-      <SearchBar/>
+      {/* <SearchBar /> */}
+      {/* <VideoDetails /> */}
     </>
-  )
+  );
 }
 
-export default App
+export default App;
