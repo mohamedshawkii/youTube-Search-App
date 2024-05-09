@@ -8,6 +8,7 @@ import Error from './Utilits/Error.jsx'
 
 import VideoDetails from './components/videodetails/VideoDetails.jsx'
 import SearchBar from './components/searchbar/SearchBar.jsx'
+import ChannelProfile from './components/channelprofile/ChannelProfile.jsx' 
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
   {
     path: '/video/:videoCode',
     element: <VideoDetails/>,
+  },
+  {
+    path: '/channel/:channalCode',
+    element: <ChannelProfile/>,
   }
   
 ]) 

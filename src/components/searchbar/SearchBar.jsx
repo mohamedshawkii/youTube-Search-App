@@ -63,7 +63,12 @@ function SearchBar() {
           text-white p-8 xtsm:max-sm:p-4 rounded-sm"
           >
             {NewData.map((item, index) => (
-              <Link key={index} to={`/video/${item.id.videoId}`}>
+              <Link
+                key={index}
+                to={`${
+                  item.id.channelId ? `/channel/${item.id.channelId}` : `/video/${item.id.videoId}`
+                }`}
+              >
                 <div
                   className="
                     flex flex-col justify-center items-start
@@ -77,15 +82,30 @@ function SearchBar() {
                   >
                     {item.snippet.channelTitle}
                   </div>
-                  <div className="w-3/4 h-3/4 self-center ">
-                    <img
-                      className="w-auto h-auto "
-                      src={item.snippet.thumbnails.high.url}
-                      alt=""
-                    />
+                  <div className="w-3/4 h-3/4 self-center">
+                    {item.id.channelId ? (
+                      <img
+                        className="mx-auto w-3/4 rounded-full "
+                        src={item.snippet.thumbnails.high.url}
+                        alt=""
+                      />
+                    ) : (
+                      <img
+                        className="w-auto  "
+                        src={item.snippet.thumbnails.high.url}
+                        alt=""
+                      />
+                    )}
                   </div>
                   <div className="line-clamp-2 sm:max-xl:line-clamp-1 sm:max-lg:text-xs xtsm:max-sm:text-sm">
-                    {item.snippet.title}
+                    {item.id.channelId ? (
+                      <div>
+                        <p className="text-[#83FFA3] ">this is channel not a video</p>
+                        {item.snippet.title}
+                      </div>
+                    ) : (
+                      item.snippet.title
+                    )}
                   </div>
                 </div>
               </Link>
