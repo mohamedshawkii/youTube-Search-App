@@ -9,12 +9,19 @@ import Error from './Utilits/Error.jsx'
 import VideoDetails from './components/videodetails/VideoDetails.jsx'
 import SearchBar from './components/searchbar/SearchBar.jsx'
 import ChannelProfile from './components/channelprofile/ChannelProfile.jsx' 
+import Feed from './components/feed/Feed.jsx'
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <SearchBar />,
     errorElement: <Error />,
+    children: [
+      {
+        path: "/feed",
+        element: <Feed/>,
+      },
+    ]
   },
   {
     path: '/video/:videoCode',
@@ -31,7 +38,6 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
       <RouterProvider router={router}/>
-      <App />
     </React.StrictMode>
 
 )
