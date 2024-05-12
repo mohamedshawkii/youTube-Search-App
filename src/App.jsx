@@ -1,11 +1,14 @@
+import Feed from "./components/feed/Feed";
 import SearchBar from "./components/searchbar/SearchBar";
-// import VideoDetails from "./components/videodetails/VideoDetails";
 
 function App() {
   return (
     <>
-      {/* <SearchBar /> */}
-      {/* <VideoDetails /> */}
+    {/* <div className="flex flex-col gap-4">
+      <SearchBar />
+      <Feed/>
+    </div> */}
+      
     </>
   );
 }

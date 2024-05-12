@@ -71,12 +71,22 @@ picture {
 
 :root{
   --font-familly: "Rubik", sans-serif;
-  
+/*   
   --main-clr: #161C2D;
   --accent-clr: #F64B4B;
   --accent-clr-vr1: #473BF0;
   --accent-clr-vr2: #83FFA3;
-
+  
   --bg-clr-white: #FFFFFF;
-  --bg-clr-blue: #F4F7FA;
+  --bg-clr-blue: #F4F7FA; */
+  
+  --bg-clr-white: #FFFFFF;
+  --m-clr: #1A1D1F;
+  --acn-cle: #BDFF38;
+
+  --care-clr: #78310B;
+  --ur-clr: #601B1B;
+}
+body{
+  background-color: var(--m-clr);
 }
