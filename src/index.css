@@ -89,4 +89,27 @@ picture {
 }
 body{
   background-color: var(--m-clr);
+  padding-top: 5rem ;
 }
+
+::-webkit-scrollbar {
+  width: 1rem;
+  height: 1em;
+}
+
+::-webkit-scrollbar-track {
+  background: none;
+  border-radius: 100vw;
+  margin-block: 0.5em;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #BDFF38;
+  border-radius: 100vw;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #bdff3891;
+}
+
+

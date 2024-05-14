@@ -1,37 +1,67 @@
 import APIFetch from "../../Utilits/APIFetch";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ImSearch } from "react-icons/im";
 import Logo from "../../assets/Logo.svg";
-import { Link, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import SideBar from "../sidebar/SideBar";
+import Feed from "../feed/Feed";
+import { IoMenu } from "react-icons/io5";
 
 function SearchBar() {
   const [NewData, SetNewData] = useState(null);
   const [SearchInput, SetSearchInput] = useState("");
+  const [buttonInput, SetButtonInput] = useState("news");
+  const  [toggleSideBar,SetToggleSideBar] = useState(true);
+
+  console.log(toggleSideBar);
 
   const handleSearchInput = (e) => {
     e.preventDefault();
-
     if (SearchInput) {
       APIFetch(`search?maxResults=9&part=snippet&q=${SearchInput}`).then(
         (resp) => {
           SetNewData(resp.data.items);
-          console.log(resp.data.items);
+          // console.log(resp.data.items);
         }
       );
-      SetSearchInput("");
+      // SetSearchInput("");
     }
   };
 
+  useEffect(() => {
+    APIFetch(`search?maxResults=9&part=snippet&q=${buttonInput}`).then(
+      (resp) => {
+        SetNewData(resp.data.items);
+        // console.log(resp.data.items);
+        // SetSearchInput("");
+      }
+    );
+  }, [buttonInput]);
+
+  useEffect(()=>{
+    function paddingLeft(){
+      if(toggleSideBar){
+        document.body.style.paddingLeft= '28rem';
+      }else{
+        document.body.style.paddingLeft= '8rem';
+      }
+    }
+    paddingLeft();
+   
+  },[toggleSideBar])
+
   return (
     <>
-      <div className="">
+      <div>
         <nav>
-          <div className="bg-[#1A1D1F] py-4 flex flex-row justify-between items-center gap-6 ">
-            <img className="w-[10rem] ml-8" src={Logo} alt="Brand logo" />
+          <div className="bg-[#1A1D1F] py-4 left-0 flex flex-row justify-start items-center gap-6 fixed top-0 w-full">
+            <button onClick={()=>SetToggleSideBar(prev => (!prev))} className="text-white text-4xl ml-8">
+              <IoMenu siz={50}/>
+            </button>
+            <img className="w-[10rem] ml-2" src={Logo} alt="Brand logo" />
             <form
               onSubmit={handleSearchInput}
-              className="flex flex-row justify-between items-center gap-8 py-2 px-4 rounded-lg bg-[#ffffff] mr-8"
+              className="flex flex-row justify-between items-center gap-8 py-2 px-4 rounded-lg bg-[#ffffff] ml-auto mr-8"
             >
               <input
                 value={SearchInput}
@@ -40,20 +70,17 @@ function SearchBar() {
                 placeholder="search"
                 className=" border-none rounded-sm box-border outline-none"
               />
-              {/* <Link to="/feed"> */}
-              <button type="submit" className=" text-[#BDFF38]">
+              <button type="submit" className=" text-[#a4a4a39e]">
                 <ImSearch size={24} />
               </button>
-              {/* </Link> */}
             </form>
           </div>
-          {NewData && (
-            <div>
-              <Outlet context={NewData} />
-            </div>
-          )}
+          {NewData && <Outlet context={NewData} />}
         </nav>
-        <SideBar />
+        <div className="flex flex-row">
+          <SideBar SetToggleSideBar={SetToggleSideBar} toggleSideBar={toggleSideBar} buttonInput={buttonInput} SetButtonInput={SetButtonInput} />
+          <Feed NewData={NewData} />
+        </div>
       </div>
     </>
   );
