@@ -13,6 +13,12 @@ const router = createBrowserRouter([
     path: "/",
     element: <SearchBar />,
     errorElement: <Error />,
+    children: [
+      {
+        path: "/feed",
+        element: <Feed/>,
+      },
+    ]
   },
   {
     path: "/video/:videoCode",
@@ -23,6 +29,7 @@ const router = createBrowserRouter([
     element: <ChannelProfile />,
   },
 ]);
+
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

@@ -7,6 +7,7 @@ import SideBar from "../sidebar/SideBar";
 import Feed from "../feed/Feed";
 import { IoMenu } from "react-icons/io5";
 
+
 function SearchBar() {
   const [NewData, SetNewData] = useState(null);
   const [SearchInput, SetSearchInput] = useState("");
@@ -62,6 +63,7 @@ function SearchBar() {
             <form
               onSubmit={handleSearchInput}
               className="flex flex-row justify-between items-center gap-8 py-2 px-4 rounded-lg bg-[#ffffff] ml-auto mr-8"
+
             >
               <input
                 value={SearchInput}
