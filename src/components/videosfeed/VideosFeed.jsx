@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
-
-const VideosFeed = ({ ResData }) => {
+const VideosFeed = ({NewData}) => {
   return (
     <div>
-      {ResData && (
+      {NewData && (
         <div
           className="
+        
           grid-cols-3 grid-rows-3 gap-6 bg-none
-          text-white px-16 pt-12 pb-16 rounded-sm
+          text-white p-4 rounded-sm
           xtsm:max-sm:p-6
           w-auto h-auto grid
           xtsm:max-sm:w-full
@@ -16,7 +16,7 @@ const VideosFeed = ({ ResData }) => {
           sm:max-lg:grid-cols-2
           sm:max-lg:grid-rows-none"
         >
-          {ResData.map((item, index) => (
+          {NewData.map((item, index) => (
             <Link
               key={index}
               to={`${

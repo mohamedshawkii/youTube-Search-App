@@ -1,14 +1,15 @@
 import Loader from "../../Utilits/Loader";
 import VideosFeed from "../videosfeed/VideosFeed";
-import { useOutletContext } from "react-router-dom";
+// import { useOutletContext } from "react-router-dom";
 
-const Feed = () => {
-    const context = useOutletContext();
-    console.log(context);
+const Feed = ({NewData}) => {
+    // const context = useOutletContext();
+    // console.log(context);
   return (
     <div className="h-auto w-auto">
-      <Loader ResData={context} />
-      <VideosFeed ResData={context} />
+      <Loader NewData={NewData} />
+      <VideosFeed NewData={NewData}/>
+      <div className="bg-white"></div>
     </div>
   );
 };
