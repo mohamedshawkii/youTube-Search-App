@@ -1,15 +1,29 @@
+import { useEffect, useState } from "react";
 import Loader from "../../Utilits/Loader";
+import VideoDetails from "../videodetails/VideoDetails";
 import VideosFeed from "../videosfeed/VideosFeed";
-// import { useOutletContext } from "react-router-dom";
+import { useOutletContext } from "react-router-dom";
 
-const Feed = ({NewData}) => {
-    // const context = useOutletContext();
-    // console.log(context);
+const Feed = () => {
+  const [videoId, SetVideoId] = useState("");
+  const [NewData, buttonInput,] = useOutletContext();
+
+  useEffect(() => {
+    SetVideoId("");
+  }, [NewData]);
+
+  useEffect(() => {
+    SetVideoId("");
+  }, [buttonInput]);
+
   return (
-    <div className="h-auto w-auto">
+    <div>
       <Loader NewData={NewData} />
-      <VideosFeed NewData={NewData}/>
-      <div className="bg-white"></div>
+      {videoId ? (
+        <VideoDetails videoId={videoId} />
+      ) : (
+        <VideosFeed NewData={NewData} SetVideoId={SetVideoId} />
+      )}
     </div>
   );
 };
