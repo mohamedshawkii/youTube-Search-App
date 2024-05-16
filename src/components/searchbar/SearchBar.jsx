@@ -9,7 +9,7 @@ import { IoMenu } from "react-icons/io5";
 function SearchBar() {
   const [NewData, SetNewData] = useState(null);
   const [SearchInput, SetSearchInput] = useState("");
-  const [buttonInput, SetButtonInput] = useState("");
+  const [buttonInput, SetButtonInput] = useState("football");
   const [toggleSideBar, SetToggleSideBar] = useState(true);
 
   const handleSearchInput = (e) => {
@@ -76,7 +76,7 @@ function SearchBar() {
               </button>
             </form>
           </div>
-          {NewData && <Outlet context={[NewData,buttonInput]}/>}
+          {NewData && <Outlet context={[NewData]}/>}
         </nav>
         <SideBar
           toggleSideBar={toggleSideBar}
