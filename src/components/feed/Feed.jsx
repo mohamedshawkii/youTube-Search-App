@@ -6,15 +6,11 @@ import { useOutletContext } from "react-router-dom";
 
 const Feed = () => {
   const [videoId, SetVideoId] = useState("");
-  const [NewData, buttonInput,] = useOutletContext();
+  const [NewData,] = useOutletContext();
 
   useEffect(() => {
     SetVideoId("");
   }, [NewData]);
-
-  useEffect(() => {
-    SetVideoId("");
-  }, [buttonInput]);
 
   return (
     <div>

@@ -1,5 +1,5 @@
 import ReactPlayer from "react-player";
-import BackToHome from "../../Utilits/BackToHome";
+import BackToFeed from "../../Utilits/BackToFeed";
 
 function VideoDetails({ videoId }) {
   return (
@@ -7,7 +7,7 @@ function VideoDetails({ videoId }) {
       <div
         className="
         flex flex-col justify-center items-center
-      bg-[#161C2D] text-white gap-4 p-8
+      bg-none text-white gap-4 p-8
         w-full text-start h-svh"
       >
         <div
@@ -19,7 +19,7 @@ function VideoDetails({ videoId }) {
             controls
           />
         </div>
-        <BackToHome />
+        <BackToFeed />
       </div>
     </div>
   );
