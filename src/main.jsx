@@ -25,7 +25,7 @@ const router = createBrowserRouter([
     ]
   },
   {
-    path: "/channel/:channalCode",
+    path: "/channel/:channelId",
     element: <ChannelProfile />,
   },
 ]);
