@@ -29,6 +29,7 @@ function SearchBar() {
   useEffect(() => {
     if (buttonInput) {
       APIFetch(`search?maxResults=10&part=snippet&q=${buttonInput}`).then(
+
         (resp) => {
           SetNewData(resp.data.items);
           console.log(resp.data.items);
