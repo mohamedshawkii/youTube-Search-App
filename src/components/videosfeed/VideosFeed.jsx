@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
-const VideosFeed = ({ NewData, SetVideoId }) => {
+import { useOutletContext } from "react-router-dom";
+const VideosFeed = () => {
+  const [NewData, videoId, SetVideoId] = useOutletContext();
   return (
     <div>
       {NewData && (
@@ -20,60 +22,64 @@ const VideosFeed = ({ NewData, SetVideoId }) => {
             <Link
               key={index}
               to={`${
-                item.id.channelId ? `/channel/${item.id.channelId}` : `/`
+                item?.id?.channelId ? `/channel/${item?.id?.channelId}` : `/${item?.id?.videoId}`
               }`}
             >
-              <button className="w-full h-full" onClick={() => SetVideoId(item.id.videoId)}>
+              <button className="w-full h-full" onClick={() => SetVideoId(item?.id?.videoId)}>
                 <div
                   className={`
                   flex flex-col justify-center items-center
                   bg-none text-white gap-4
                   w-full h-full text-start
                   ${
-                    item.id.channelId
+                    item?.id?.channelId
                       ? "flex flex-col justify-center items-center"
-                      : null
+                      : ''
                   }`}
                 >
                   <div className="flex flex-col justify-center items-center w-full h-full">
-                    {item.id.channelId ? (
+                    {item?.id?.channelId ? (
                       <img
                         className="w-2/4 rounded-full"
                         src={
+                          item?.snippet?.thumbnails?.high?.url ?
                           item.snippet.thumbnails.high.url
-                            ? item.snippet.thumbnails.high.url
-                            : item.snippet.thumbnails.medium.url
+                          : item.snippet.thumbnails.medium.url
                         }
                         alt="channel thumbnail"
                       />
                     ) : (
                       <img
                         className="w-full h-full rounded-3xl object-cover"
-                        src={item.snippet.thumbnails.high.url}
+                        src={
+                          item?.snippet?.thumbnails?.medium?.url ?
+                          item.snippet.thumbnails.high.url
+                          : item.snippet.thumbnails.medium.url
+                        }
                         alt="video thumbnail"
                       />
                     )}
                   </div>
                   <div
                     className={`w-full h-full ${
-                      item.id.channelId
+                      item?.id?.channelId
                         ? "flex flex-col justify-center items-center gap-2"
                         : null
                     }`}
                   >
                     <div className="w-3/4 line-clamp-2 leading-5 sm:max-xl:line-clamp-1 sm:max-lg:text-xs xtsm:max-sm:text-sm ml-6">
-                      {item.id.channelId ? null : (
-                        <div>{item.snippet.title}</div>
+                      {item?.id?.channelId ? null : (
+                        <div>{item?.snippet?.title}</div>
                       )}
                     </div>
                     <div>
-                      {item.id.channelId && (
+                      {item?.id?.channelId && (
                         <p className="text-[#83FFA3]">the is a channel</p>
                       )}
                     </div>
                     <div>
-                      {item.id.channelId && (
-                        <div>{item.snippet.channelTitle}</div>
+                      {item?.id?.channelId && (
+                        <div>{item?.snippet?.channelTitle}</div>
                       )}
                     </div>
                     <div
@@ -82,8 +88,8 @@ const VideosFeed = ({ NewData, SetVideoId }) => {
                     xtsm:max-sm:text-sm
                     cursor-pointer line-clamp-1 text-[#ffffff8d] "
                     >
-                      {item.id.channelId ? null : (
-                        <div>{item.snippet.channelTitle}</div>
+                      {item?.id?.channelId ? null : (
+                        <div>{item?.snippet?.channelTitle}</div>
                       )}
                     </div>
                   </div>

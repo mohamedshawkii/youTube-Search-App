@@ -1,7 +1,9 @@
 import ReactPlayer from "react-player";
 import BackToFeed from "../../Utilits/BackToFeed";
+import { Navigate, useOutletContext } from "react-router-dom";
 
-function VideoDetails({ videoId }) {
+function VideoDetails() {
+  const [NewData, videoId,] = useOutletContext();
   return (
     <div>
       <div
@@ -21,6 +23,7 @@ function VideoDetails({ videoId }) {
         </div>
         <BackToFeed />
       </div>
+      { !NewData  && <Navigate to='/VideosFeed'/>}
     </div>
   );
 }

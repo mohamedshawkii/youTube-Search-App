@@ -1,40 +1,41 @@
 import APIFetch from "../../Utilits/APIFetch";
-import { useEffect, useState,} from "react";
+import { useEffect, useState } from "react";
 import { ImSearch } from "react-icons/im";
 import Logo from "../../assets/Logo.svg";
-import { Outlet } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 import SideBar from "../sidebar/SideBar";
 import { IoMenu } from "react-icons/io5";
 
 function SearchBar() {
   const [NewData, SetNewData] = useState(null);
   const [SearchInput, SetSearchInput] = useState("");
-  const [buttonInput, SetButtonInput] = useState("football");
-  const [toggleSideBar, SetToggleSideBar] = useState(true);
+  const [buttonInput, SetButtonInput] = useState("");
+  const [toggleSideBar, SetToggleSideBar] = useState(false);
+  const [videoId, SetVideoId] = useState();
 
   const handleSearchInput = (e) => {
     e.preventDefault();
     if (SearchInput) {
-      APIFetch(`search?maxResults=9&part=snippet&q=${SearchInput}`).then(
+      APIFetch(`search?maxResults=10&part=snippet&regionCode=US&q=${SearchInput}`).then(
         (resp) => {
           SetNewData(resp.data.items);
           // console.log(resp.data.items);
         }
       );
-      // SetSearchInput("");
     }
+    SetNewData(null);
   };
 
   useEffect(() => {
-    if(buttonInput){
-    APIFetch(`search?maxResults=9&part=snippet&q=${buttonInput}`).then(
-      (resp) => {
-        SetNewData(resp.data.items);
-        // console.log(resp.data.items);
-        // SetSearchInput("");
-      }
-    );
-  }
+    if (buttonInput) {
+      APIFetch(`search?maxResults=10&part=snippet&regionCode=US&q=${buttonInput}`).then(
+        (resp) => {
+          SetNewData(resp.data.items);
+          console.log(resp.data.items);
+        }
+      );
+    }
+    SetNewData(null);
   }, [buttonInput]);
 
   useEffect(() => {
@@ -76,7 +77,8 @@ function SearchBar() {
               </button>
             </form>
           </div>
-          {NewData && <Outlet context={[NewData]}/>}
+          {NewData && <Outlet context={[NewData, videoId, SetVideoId]} />}
+          {NewData && <Navigate to="/VideosFeed" />}
         </nav>
         <SideBar
           toggleSideBar={toggleSideBar}

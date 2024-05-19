@@ -18,7 +18,7 @@ function SideBar({
       icon: <FaRegNewspaper />,
     },
     {
-      name: "Tedtalk",
+      name: "TedTalk",
       icon: <GiMicrophone />,
     },
     {
