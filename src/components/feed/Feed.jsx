@@ -5,21 +5,23 @@ import VideosFeed from "../videosfeed/VideosFeed";
 import { useOutletContext } from "react-router-dom";
 
 const Feed = () => {
-  const [videoId, SetVideoId] = useState("");
-  const [NewData,] = useOutletContext();
+  // const [videoId, SetVideoId] = useState("");
+  // const [NewData,] = useOutletContext();
 
-  useEffect(() => {
-    SetVideoId("");
-  }, [NewData]);
+  // useEffect(() => {
+  //   SetVideoId("");
+  // }, [NewData]);
 
   return (
     <div>
       <Loader NewData={NewData} />
-      {videoId ? (
+      {/* <VideoDetails videoId={videoId}/> */}
+      {/* <VideosFeed NewData={NewData} SetVideoId={SetVideoId}/> */}
+      {/* {videoId ? (
         <VideoDetails videoId={videoId} />
       ) : (
         <VideosFeed NewData={NewData} SetVideoId={SetVideoId} />
-      )}
+      )} */}
     </div>
   );
 };

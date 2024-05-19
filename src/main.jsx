@@ -5,7 +5,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Error from "./Utilits/Error.jsx";
 import SearchBar from "./components/searchbar/SearchBar.jsx";
 import ChannelProfile from "./components/channelprofile/ChannelProfile.jsx";
-import Feed from "./components/feed/Feed.jsx";
+import VideoDetails from "./components/videodetails/VideoDetails.jsx";
+import VideosFeed from "./components/videosfeed/VideosFeed.jsx";
 
 const router = createBrowserRouter([
   {
@@ -14,8 +15,12 @@ const router = createBrowserRouter([
     errorElement: <Error />,
     children: [
       {
-        path: "/",
-        element: <Feed/>,
+        path: "/:videoId",
+        element: <VideoDetails/>,
+      },
+      {
+        path: "/VideosFeed",
+        element: <VideosFeed/>,
       },
     ]
   },
