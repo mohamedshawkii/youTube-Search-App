@@ -21,7 +21,6 @@ function VideoDetails() {
             controls
           />
         </div>
-        <BackToFeed />
       </div>
       { !NewData  && <Navigate to='/VideosFeed'/>}
     </div>

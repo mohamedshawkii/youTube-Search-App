@@ -16,7 +16,7 @@ function SearchBar() {
   const handleSearchInput = (e) => {
     e.preventDefault();
     if (SearchInput) {
-      APIFetch(`search?maxResults=10&part=snippet&regionCode=US&q=${SearchInput}`).then(
+      APIFetch(`search?maxResults=10&part=snippet&q=${SearchInput}`).then(
         (resp) => {
           SetNewData(resp.data.items);
           // console.log(resp.data.items);
@@ -28,7 +28,8 @@ function SearchBar() {
 
   useEffect(() => {
     if (buttonInput) {
-      APIFetch(`search?maxResults=10&part=snippet&regionCode=US&q=${buttonInput}`).then(
+      APIFetch(`search?maxResults=10&part=snippet&q=${buttonInput}`).then(
+
         (resp) => {
           SetNewData(resp.data.items);
           console.log(resp.data.items);
