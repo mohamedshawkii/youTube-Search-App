@@ -40,6 +40,7 @@ function SearchBar() {
 
   useEffect(() => {
     function paddingLeft() {
+      document.body.style.paddingTop = "6rem";
       if (toggleSideBar) {
         document.body.style.paddingLeft = "28rem";
       } else {

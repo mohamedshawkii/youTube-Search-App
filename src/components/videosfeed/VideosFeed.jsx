@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import { useOutletContext } from "react-router-dom";
+import LoadingBTN from "../../Utilits/LoadingBTN";
 const VideosFeed = () => {
   const [NewData, videoId, SetVideoId] = useOutletContext();
   return (
     <div>
+      <LoadingBTN NewData={NewData}/>
       {NewData && (
         <div
           className="

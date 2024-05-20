@@ -60,11 +60,6 @@ function ChannelProfile() {
             </div>
             <p className=" line-clamp-4 ">{newRes[0]?.snippet?.description}</p>
           </div>
-
-          {/* <div className="flex flex-row justify-center items-center gap-6 ">
-            <p>subscriberCount:{newRes[0]?.statistics?.subscriberCount}</p>
-            <p>videoCount:{newRes[0]?.statistics?.videoCount}</p>
-          </div> */}
         </div>
       )}
     </div>

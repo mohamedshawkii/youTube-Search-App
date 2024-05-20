@@ -16,16 +16,19 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/:videoId",
+        errorElement: <Error />,
         element: <VideoDetails/>,
       },
       {
         path: "/VideosFeed",
+        errorElement: <Error />,
         element: <VideosFeed/>,
       },
     ]
   },
   {
     path: "/channel/:channelId",
+    errorElement: <Error />,
     element: <ChannelProfile />,
   },
 ]);

@@ -1,13 +1,13 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
 
 function Error() {
   return (
-    <div>
+    <div className="text[#BDFF38]">
       404 sorry page not found
-      <Link to='/'>Home</Link>
-      </div>
-  )
+      <Link to="/">Home</Link>
+    </div>
+  );
 }
 
-export default Error
+export default Error;
