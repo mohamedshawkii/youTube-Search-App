@@ -56,7 +56,7 @@ function SideBar({
       <div
         className={`h-svh fixed top-[88px] left-0 
        bg-[#1A1D1F] overflow-x-hidden overflow-scroll
-       ${toggleSideBar ? " w-[28rem]" : "w-[8rem]"}
+       ${toggleSideBar ? " w-[300px]" : "w-[8rem]"}
         `}
       >
         <div
@@ -72,13 +72,13 @@ function SideBar({
               text-white hover:text-[#1A1D1F] hover:bg-[#BDFF38] rounded-lg 
               ${
                 toggleSideBar
-                  ? "justify-start px-4 py-6"
-                  : "justify-center w-full h-full px-6 py-6 gap-0"
+                  ? "justify-start px-3 py-4"
+                  : "justify-center w-4/6 h-4/6  px-3 py-4 gap-0"
               }`}
             >
-              <div className="text-3xl">{item.icon}</div>
+              <div className="text-2xl">{item.icon}</div>
               {toggleSideBar && (
-                <div className="text-lg font-semibold">{item.name}</div>
+                <div className="text-sm font-semibold">{item.name}</div>
               )}
             </button>
           ))}

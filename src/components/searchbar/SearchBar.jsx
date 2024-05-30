@@ -43,7 +43,7 @@ function SearchBar() {
     function paddingLeft() {
       document.body.style.paddingTop = "6rem";
       if (toggleSideBar) {
-        document.body.style.paddingLeft = "28rem";
+        document.body.style.paddingLeft = "19rem";
       } else {
         document.body.style.paddingLeft = "8rem";
       }
